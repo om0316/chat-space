@@ -18,7 +18,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|default: ""|
+|name|string|null: false|
 |email|string|null: false, default: "", unique: true|
 |encrypted_password|string|null: false, default: ""|
 
@@ -37,7 +37,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string||null: false, default: ""|
+|name|string||null: false|
 |created_at|datetime|
 |updated_at|datetime|
 
@@ -63,8 +63,8 @@ Things you may want to cover:
 |------|----|-------|
 |text|string|
 |image|string|
-|user_id|integer|null: false|
-|group_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 |created_at|datetime|
 |updated_at|datetime|
 
