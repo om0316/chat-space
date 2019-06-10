@@ -1,18 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
 * Database creation
-
 
 ## usersテーブル(devise使用)
 
@@ -28,11 +16,11 @@ Things you may want to cover:
 |created_at|datetime|
 |updated_at|datetime|
 
-
 ### Association
 - has_many :members
 - has_many :groups, through: :members
 - has_many :messages
+
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -41,17 +29,17 @@ Things you may want to cover:
 |created_at|datetime|
 |updated_at|datetime|
 
-
 ### Association
 - has_many :members
 - has_many :users, through: :members
 - has_many :messages
 
+
 ## membersテーブル (中間テーブル)
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -63,24 +51,11 @@ Things you may want to cover:
 |------|----|-------|
 |text|string|
 |image|string|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 |created_at|datetime|
 |updated_at|datetime|
 
 ### Association
 - belongs_to :user
 - belongs_to :group
-
-
-
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
