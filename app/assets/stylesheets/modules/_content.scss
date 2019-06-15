@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+.Content{
+
+  float: right;
+  
+  &__messageheader {
+    display: flex;
+    height: 100px; 
+    border-bottom: solid 1px $border-white;
+    background-color: $white;
+    padding: 0 40px 0 40px;
+  }
+
+  &__mainmessage{
+    height: calc(100vh - 190px);
+    padding: 46px 40px;
+    background-color: $darkwhite;
+    overflow: scroll;
+    width: calc(100vW - 300px);
+  }
+
+ &__messageform{
+    height: 90px;
+    padding: 20px 40px;
+    background-color: $Whitegray;
+  }
+}
+
+.chat-group{
+ 
+  &__name{
+    margin-top: 35px;
+    font-size: 20px;
+    color: $black;
+  }
+
+  &__list{
+    display: flex;
+    margin-top: 15px;
+    font-size: 12px;
+    color: $gray;
+   }
+}
+
+.message-list{
+  
+  padding-bottom: 40px;
+  display: block;
+  clear: both;
+  content: "";
+
+  &__name{ 
+    color: $slateblack;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    margin: 0 10px 0 0;
+  }
+
+  &__date{
+    color: $gray;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  &__text{
+    color: $slateblack;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+.btn-contents{
+
+  &__edit{
+    border: solid 1px $lightblue;
+    color: $lightblue; 
+    line-height: 40px;
+    margin-top: 28px;
+    position: absolute;
+    right: 40px;
+    padding: 0px 20px;
+    cursor: pointer;
+   }  
+ }
+
+ .message-create{
+    
+  display: flex;
+    
+  &__form{
+    position: relative;
+    width: 100%;
+  }
+
+  &__text{
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 10px;
+    color: $slateblack;
+    border-style: none;
+    font-size: 16px;
+  }
+
+  &__text__image{
+    font-size: 21px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  &__btn__send{
+    width: 100px;
+    height: 50px;
+    padding: 0 30px;
+    margin-left: 15px;
+    background-color: $lightblue;
+    color: $white;
+    cursor: pointer;
+    }  
+ }
+
+ 
+ 
