@@ -1,0 +1,54 @@
+.Wrapper 
+  .flash
+    グループを作成しました
+  .side-bar
+    .side-bar__chatheader
+      %p.side-bar__user-name om
+      %ul.User-menu
+        %li.User-menu__item
+          =link_to "", class: "User-menu__link" do
+            = fa_icon 'edit', class: "User-menu__new-group"
+        %li.User-menu__item
+          =link_to "", class: "User-menu__link" do
+            = fa_icon 'cog', class: "User-menu__edit-user"
+
+    .side-bar__messagegroups
+      .side-bar__messagegroup
+        %ul.side-bar__messagegroup__list 
+          %li.side-bar__messagegroup__list__group group
+          %li.side-bar__messagegroup__list__message message
+        %ul.side-bar__messagegroup__list 
+          %li.side-bar__messagegroup__list__group group
+          %li.side-bar__messagegroup__list__message message
+
+  .Content
+    .Content__messageheader
+      .chat-group
+        %p.chat-group__name groupname
+        %ul.chat-group__list
+          Member :
+          %li.chat-group__list__names &nbsp name2
+          %li.chat-group__list__names &nbsp name1
+
+      .btm-contents 
+        %form{name:"group-edit",mesod:"edit"}
+          %input{type:"submit",value:"Edit",class: "btn-contents__edit"}
+
+    .Content__mainmessage
+      .Content__mainmessage__user
+      %ul.message-list
+        %li.message-list__name om
+        %li.message-list__date yyyy/mm/dd(曜日) hh:mm:ss
+        %li.message-list__text 123
+      %ul.message-list
+        %li.message-list__name om
+        %li.message-list__date yyyy/mm/dd(曜日) hh:mm:ss
+        %li.message-list__text 133
+    
+    .Content__messageform
+      .message-create
+        %form{name:"message-send",mesod:"post",class:"message-create__form"}
+          %input{type:"text",name:"message",class: "message-create__text", placeholder: "type a message"} 
+            = fa_icon 'picture-o', class: "message-create__text__image"
+        .messagearea__btn
+        %input{type:"submit",value:"Send",class: "message-create__btn__send"}

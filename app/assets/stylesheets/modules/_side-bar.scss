@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+.flash{
+  background-color: $lightblue;
+  color: $white;
+  text-align: center;
+}
+.side-bar{
+
+  float: left;
+
+  &__chatheader{
+    height: 100px;
+    width: 300px;
+    background-color:$darknaby;
+    font-size: 16px;
+    padding: 0 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__user-name{
+    color: $white;
+    font-weight: bold;
+  }
+
+  &__messagegroup{
+    height: calc(100vh - 100px);
+    width: 300px;
+    background-color: $grayblack;
+    padding: 20px 20px 0;
+    overflow: scroll;
+   }
+  
+  &__messagegroup__list{
+    margin-bottom: 40px;
+    color: $white;
+  }
+
+  &__messagegroup__list__group{
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  &__messagegroup__list__message{
+    font-size: 11px;
+    font-weight: bold; 
+  }
+}
+
+.User-menu{
+   
+  position: absolute;
+  display: flex;
+  top: 620x;
+  left: 240px;
+
+  &__item {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  &__new-group{
+    color:$white;
+  }
+
+  &__edit-user{
+    color:$white;
+  }
+}
