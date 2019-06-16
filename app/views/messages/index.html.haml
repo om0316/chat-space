@@ -1,15 +1,14 @@
 .Wrapper 
-  .flash
-    グループを作成しました
   .side-bar
     .side-bar__chatheader
-      %p.side-bar__user-name om
+      %p.side-bar__user-name
+        = current_user.name
       %ul.User-menu
         %li.User-menu__item
           =link_to "", class: "User-menu__link" do
             = fa_icon 'edit', class: "User-menu__new-group"
         %li.User-menu__item
-          =link_to "", class: "User-menu__link" do
+          =link_to edit_user_path(current_user), class: "User-menu__link" do
             = fa_icon 'cog', class: "User-menu__edit-user"
 
     .side-bar__messagegroups
