@@ -5,7 +5,7 @@
 .side-bar{
 
   float: left;
-
+  
   &__chatheader{
     height: 100px;
     width: 300px;
@@ -43,6 +43,10 @@
   &__messagegroup__list__message{
     font-size: 11px;
     font-weight: bold; 
+  }
+
+  &__messagegroup_link{
+    text-decoration: none;
   }
 }
 

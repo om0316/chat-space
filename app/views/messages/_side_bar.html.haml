@@ -1,0 +1,19 @@
+.side-bar
+  .side-bar__chatheader
+    %p.side-bar__user-name
+      = current_user.name
+    %ul.User-menu
+      %li.User-menu__item
+        = link_to new_group_path, class: "User-menu__link" do
+          = fa_icon 'edit', class: "User-menu__new-group"
+      %li.User-menu__item
+        = link_to edit_user_path(current_user), class: "User-menu__link" do
+          = fa_icon 'cog', class: "User-menu__edit-user"   
+  .side-bar__messagegroups
+    .side-bar__messagegroup
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group),class:"side-bar__messagegroup_link" do
+          %ul.side-bar__messagegroup__list 
+            %li.side-bar__messagegroup__list__group 
+              = group.name
+            %li.side-bar__messagegroup__list__message メッセージはまだありません。    
