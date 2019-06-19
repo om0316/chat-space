@@ -88,9 +88,9 @@
  }
 
  .message-create{
-    
-  display: flex;
-    
+  
+  box-sizing: border-box;
+  
   &__form{
     position: relative;
     width: 100%;
@@ -98,21 +98,30 @@
 
   &__text{
     height: 50px;
-    width: 100%;
     padding: 0 10px 0 10px;
     color: $slateblack;
     border-style: none;
     font-size: 16px;
-  }
-
-  &__text__image{
-    font-size: 21px;
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    cursor: pointer;
+    width: calc(100% - 115px);
+    float: left;
   }
   
+  &__up{
+    float: left;
+  }
+  
+  &__up__icon{
+    font-size: 21px;
+    position: absolute;
+    line-height: 50px;
+    left: calc(100% - 150px);
+    cursor: pointer;
+  }
+
+  &__up__hidden{
+    display: none;
+  }
+
   &__btn__send{
     width: 100px;
     height: 50px;
@@ -121,6 +130,7 @@
     background-color: $lightblue;
     color: $white;
     cursor: pointer;
+    float: right;
     }  
  }
 

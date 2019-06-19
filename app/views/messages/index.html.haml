@@ -1,35 +1,30 @@
 .Wrapper 
-
-  = render 'side_bar'
-
+  = render partial: 'side_bar'
+  
   .Content
     .Content__messageheader
       .chat-group
-        %p.chat-group__name groupname
+        %p.chat-group__name 
+          = @group.name
         %ul.chat-group__list
           Member :
-          %li.chat-group__list__names &nbsp name2
-          %li.chat-group__list__names &nbsp name1
-
+          - @group.users.each do |gname|
+            %li.chat-group__list__names
+              &nbsp 
+              = gname.name
+              
       .btm-contents 
         %form{name:"group-edit",mesod:"edit"}
           %input{type:"submit",value:"Edit",class: "btn-contents__edit"}
-
+          
     .Content__mainmessage
-      .Content__mainmessage__user
-      %ul.message-list
-        %li.message-list__name om
-        %li.message-list__date yyyy/mm/dd(曜日) hh:mm:ss
-        %li.message-list__text 123
-      %ul.message-list
-        %li.message-list__name om
-        %li.message-list__date yyyy/mm/dd(曜日) hh:mm:ss
-        %li.message-list__text 133
-    
+      = render partial: 'message', collection: @messages
     .Content__messageform
       .message-create
-        %form{name:"message-send",mesod:"post",class:"message-create__form"}
-          %input{type:"text",name:"message",class: "message-create__text", placeholder: "type a message"} 
-            = fa_icon 'picture-o', class: "message-create__text__image"
-        .messagearea__btn
-        %input{type:"submit",value:"Send",class: "message-create__btn__send"}
+        = form_for [@group, @message] do |f|
+          .message-create__form
+            = f.text_field :text, class: 'message-create__text',placeholder: 'type a message'
+            = f.label :image, class: 'message-create__up__label' do
+              = fa_icon 'picture-o', class: "message-create__up__icon"
+              = f.file_field :image, class: 'message-create__up__hidden'
+            = f.submit 'Send', class: 'message-create__btn__send'

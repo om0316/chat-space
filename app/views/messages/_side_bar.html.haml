@@ -16,4 +16,6 @@
           %ul.side-bar__messagegroup__list 
             %li.side-bar__messagegroup__list__group 
               = group.name
-            %li.side-bar__messagegroup__list__message メッセージはまだありません。    
+            %li.side-bar__messagegroup__list__message
+              = group.show_last_message
+              
