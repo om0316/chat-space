@@ -10,8 +10,8 @@
           Member :
           - @group.users.each do |gname|
             %li.chat-group__list__names
-              &nbsp 
-              = gname.name
+            &nbsp
+            = gname.name
               
       .btm-contents 
         %form{name:"group-edit",mesod:"edit"}
@@ -19,6 +19,7 @@
           
     .Content__mainmessage
       = render partial: 'message', collection: @messages
+
     .Content__messageform
       .message-create
         = form_for [@group, @message] do |f|

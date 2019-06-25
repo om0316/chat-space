@@ -61,15 +61,20 @@ gem 'mini_magick'
 
 #開発環境にのみ必要
 group :development do 
-     gem 'rspec'
+    gem 'rspec'
 end
 
 #テスト環境にのみ必要
 group :test do 
-     gem 'rspec'
+    gem 'rspec'
+    gem 'rspec-rails', '~> 3.5'
+    gem 'rails-controller-testing'
+    gem 'factory_bot_rails'
+    gem 'faker'
+    gem 'capybara'
 end
 
 # 本番環境にのみ必要
 group :production do 
-     gem 'unicorn'
+    gem 'unicorn'
 end 
