@@ -1,13 +1,8 @@
 $(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    var img;
-    if(message.image.url)
-    {
-       img = `<img class="lower-message__image" src=${message.image.url} ></img>`
-    }else
-    {
-       img = ""
-    }
+    
+    var img = message.image.url == null ? "" : `<img class="lower-message__image" src=${message.image.url} ></img>`
+    
     var html = `<ul class="message-list">
                      <li class="message-list__name">
                         ${message.user_name}
@@ -46,8 +41,8 @@ $(document).on('turbolinks:load', function() {
       {
         alert("メッセージを入力してください。");
       }
-      $("#message_text").val("");
-      $("#message_image").val("");
+
+      $("#new_message")[0].reset();
       $(".message-create__btn__send").prop("disabled", false);
     })
     .fail(function(){
