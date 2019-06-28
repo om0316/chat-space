@@ -9,7 +9,7 @@ class Group < ApplicationRecord
       if last_message.text?
         last_message.text
       else
-        last_message.text "画像が投稿されています"
+        last_message.text = "画像が投稿されています"
       end    
     else
       "まだメッセージはありません"
