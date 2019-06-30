@@ -15,7 +15,7 @@
               
       .btm-contents 
         %form{name:"group-edit",mesod:"edit"}
-          %input{type:"submit",value:"Edit",class: "btn-contents__edit"}
+          = link_to "Edit", edit_group_path(@group.id), method: :get, class: "btn-contents__edit"
           
     .Content__mainmessage
       = render partial: 'message', collection: @messages
