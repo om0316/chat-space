@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   var search_list = $("#user-search-result");
   var member_list = $("#member_search_result");
@@ -14,7 +14,7 @@ $(function() {
 
   function appendMember(name, id) {
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-                  <input name='group[user_ids][]' type='hidden' value=${id}>
+                  <input name='group[user_ids][]' type='hidden' class="js-user" value=${id}>
                   <p class='chat-group-user__name'>${name}</p>
                 <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                 </div>`
@@ -31,18 +31,28 @@ $(function() {
 
   $("#user-search-field").on("keyup", function() {
     
-    var input = $("#user-search-field").val();
+     var input = $("#user-search-field").val();
+
+    //チャットメンバーにすでに登録されているユーザを取得
+     var x = $('.js-user');
+     var arr = [];
+     x.each(function(i, ele) {
+       arr.push(ele.value);
+     })
 
     $.ajax({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input,
+              user_id: arr},
+            
       dataType: 'json'
     })
 
     .done(function(data) {
       
       $("#user-search-result").empty();
+
       if (data.length !== 0) {
         data.forEach(function(data){
           appendUser(data);
