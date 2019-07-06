@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
     
     var img = message.image.url == null ? "" : `<img class="lower-message__image" src=${message.image.url} ></img>`
     
-    var html = `<ul class="message-list">
+    var html = `<ul class="message-list" data-id= "${message.id}">
                      <li class="message-list__name">
                         ${message.user_name}
                      </li>
