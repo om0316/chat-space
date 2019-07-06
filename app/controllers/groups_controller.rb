@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:edit, :update]
+  before_action :ser_user, only: [:new]
 
   def index
   end
@@ -16,10 +18,11 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
-    @group = Group.new
-    @group.users << current_user
+    #カレントユーザをチャットメンバー項目の一番前に持ってくる
+    @users = @group.users.where.not(id: current_user.id).map{ |user| user }
+    @users.unshift(current_user)
   end
 
   def update
@@ -38,5 +41,11 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
+  
+  def ser_user
+    #カレントユーザ表示される用
+    @users = []
+    @users << current_user
+  end  
 
 end
