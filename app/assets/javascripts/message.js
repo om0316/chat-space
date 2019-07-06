@@ -49,4 +49,41 @@ $(document).on('turbolinks:load', function() {
       alert("error");
     })
   })
+
+  var reloadMessages = function() {
+
+    //グループに入ったときのみ、自動更新する。
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      
+      //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+      last_message_id = $(".message-list:last").data("id");
+        
+      $.ajax({
+          //ルーティングで設定した通りのURLを指定
+          url: "api/messages",
+          //ルーティングで設定した通りhttpメソッドをgetに指定
+          type: "get",
+          dataType: 'json',
+          //dataオプションでリクエストに値を含める
+          data: {id: last_message_id}
+        })
+      .done(function(messages) {
+        
+        var insertHTML = '';
+        //他の追加で追加された分だけ追加
+        $.each(messages,function(index,val){
+          insertHTML = buildHTML(val); 
+          $('.Content__mainmessage').append(insertHTML);//メッセージを追加
+        });
+
+        $(".Content__mainmessage").animate({scrollTop: $(".Content__mainmessage")[0].scrollHeight}, "fasts");
+      })
+      .fail(function() {
+        alert("error");
+      });
+    }
+  };
+  
+  setInterval(reloadMessages, 5000);
+  // 5秒すぎると処理
 })
