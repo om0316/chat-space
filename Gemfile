@@ -62,17 +62,27 @@ gem 'jquery-rails'
 
 #開発環境にのみ必要
 group :development do 
-    gem 'rspec'
+  gem 'rspec'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 #テスト環境にのみ必要
 group :test do 
-    gem 'rspec'
-    gem 'rspec-rails', '~> 3.5'
-    gem 'rails-controller-testing'
-    gem 'factory_bot_rails'
-    gem 'faker'
-    gem 'capybara'
+  gem 'rspec'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 # 本番環境にのみ必要
