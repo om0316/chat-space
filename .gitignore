@@ -18,3 +18,6 @@
 
 #uploadsディレクトリはコミットしない
 public/uploads/*
+
+#secrets.ymlはプッシュしない。
+config/secrets.yml

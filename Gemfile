@@ -59,6 +59,7 @@ gem 'pry-byebug'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
+gem 'fog-aws'
 
 #開発環境にのみ必要
 group :development do 
