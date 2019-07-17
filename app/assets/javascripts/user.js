@@ -33,6 +33,13 @@ $(document).on('turbolinks:load', function() {
     
      var input = $("#user-search-field").val();
 
+     //キーワード検索が空のとき
+     if (input.length == 0)
+     { 
+       $("#user-search-result").empty();
+       return;
+     }
+
     //チャットメンバーにすでに登録されているユーザを取得
      var x = $('.js-user');
      var arr = [];
@@ -50,7 +57,7 @@ $(document).on('turbolinks:load', function() {
     })
 
     .done(function(data) {
-      
+
       $("#user-search-result").empty();
 
       if (data.length !== 0) {

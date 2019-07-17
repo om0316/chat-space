@@ -56,8 +56,8 @@ $(document).on('turbolinks:load', function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-      last_message_id = $(".message-list:last").data("id");
-        
+      last_message_id = $(".message-list:last").data("id") || 0;
+
       $.ajax({
           //ルーティングで設定した通りのURLを指定
           url: "api/messages",
