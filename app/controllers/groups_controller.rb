@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
-  before_action :ser_user, only: [:new]
+  before_action :ser_user, only: [:new, :create]
 
   def index
   end
