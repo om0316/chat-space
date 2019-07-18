@@ -74,9 +74,9 @@ $(document).on('turbolinks:load', function() {
         $.each(messages,function(index,val){
           insertHTML = buildHTML(val); 
           $('.Content__mainmessage').append(insertHTML);//メッセージを追加
+          $(".Content__mainmessage").animate({scrollTop: $(".Content__mainmessage")[0].scrollHeight}, "fasts");
         });
 
-        $(".Content__mainmessage").animate({scrollTop: $(".Content__mainmessage")[0].scrollHeight}, "fasts");
       })
       .fail(function() {
         alert("error");
